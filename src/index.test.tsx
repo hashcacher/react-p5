@@ -4,12 +4,12 @@ import { render } from '@testing-library/react';
 import Sketch from './index';
 
 const reactP5TestId = 'react-p5';
-let MockComponent = null;
-let canvas = null;
+let MockComponent: any = null;
+let canvas: any = null;
 
 beforeEach(() => {
-  MockComponent = (props) => {
-    const setup = (p, canvasParentRef) => {
+  MockComponent = (props: any) => {
+    const setup = (p: any, canvasParentRef: any) => {
       canvas = p.createCanvas(500, 500).parent(canvasParentRef);
       p.background(0);
     }
@@ -24,6 +24,8 @@ describe('react-p5', () => {
 
   it('Should render correct in SSR mode when window is not-defined', () => {
     const clonedWindow = global.window;
+
+    // @ts-ignore
     delete global.window;
 
     const StringComponent = ReactDOMServer.renderToString(<MockComponent />);

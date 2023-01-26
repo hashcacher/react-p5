@@ -28,8 +28,11 @@ export const p5Events = [
   "deviceShaken",
 ];
 
-export default class Sketch extends React.Component {
-  constructor(props) {
+export default class Sketch extends React.Component<any, any> {
+  canvasParentRef: React.RefObject<HTMLDivElement> | undefined
+  sketch: any
+
+  constructor(props: any) {
     super(props);
     this.canvasParentRef = React.createRef();
   }
@@ -37,12 +40,12 @@ export default class Sketch extends React.Component {
   componentDidMount() {
     this.sketch = new p5((p) => {
       p.setup = () => {
-        this.props.setup(p, this.canvasParentRef.current);
+        this.props.setup(p, this.canvasParentRef!.current);
       };
 
       p5Events.forEach((event) => {
         if (this.props[event]) {
-          p[event] = (...rest) => {
+          p[event] = (...rest: any[]) => {
             this.props[event](p, ...rest);
           };
         }
@@ -58,7 +61,7 @@ export default class Sketch extends React.Component {
   render() {
     return (
       <div
-        ref={this.canvasParentRef}
+        ref={this.canvasParentRef as React.LegacyRef<HTMLDivElement>}
         className={this.props.className || "react-p5"}
         data-testid="react-p5"
         style={this.props.style || {}}
