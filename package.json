@@ -54,6 +54,7 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "react": "^18.2.0",
     "@types/p5": "^1.5.0",
     "opencollective-postinstall": "2.0.2",
     "p5": "^1.5.0"
