@@ -56,7 +56,7 @@ var Sketch = /** @class */ (function (_super) {
     __extends(Sketch, _super);
     function Sketch(props) {
         var _this = _super.call(this, props) || this;
-        _this.canvasParentRef = react_1["default"].createRef();
+        _this.canvasParentRef = (0, react_1.createRef)();
         return _this;
     }
     Sketch.prototype.componentDidMount = function () {
@@ -86,8 +86,8 @@ var Sketch = /** @class */ (function (_super) {
         this.sketch.remove();
     };
     Sketch.prototype.render = function () {
-        return (react_1["default"].createElement("div", { ref: this.canvasParentRef, className: this.props.className || "react-p5", "data-testid": "react-p5", style: this.props.style || {} }));
+        return (<div ref={this.canvasParentRef} className={this.props.className || "react-p5"} data-testid="react-p5" style={this.props.style || {}}/>);
     };
     return Sketch;
-}(react_1["default"].Component));
+}(react_1.Component));
 exports["default"] = Sketch;
