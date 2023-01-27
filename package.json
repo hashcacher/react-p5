@@ -1,6 +1,6 @@
 {
   "name": "react-p5",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "This Component lets you integrate p5 Sketches into your React App",
   "main": "./src/index.js",
   "types": "./@types",
