@@ -86,7 +86,7 @@ var Sketch = /** @class */ (function (_super) {
         this.sketch.remove();
     };
     Sketch.prototype.render = function () {
-        return (<div ref={this.canvasParentRef} className={this.props.className || "react-p5"} data-testid="react-p5" style={this.props.style || {}}/>);
+        return (<div ref={this.canvasParentRef} className={this.props.className || "react-p5"} data-testid="react-p5"/>);
     };
     return Sketch;
 }(react_1.Component));
