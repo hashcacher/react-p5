@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, RefObject, LegacyRef, createRef } from "react";
 import p5 from "p5";
 
 // NOTE: assigning p5 to window because someone can need it globally to use in others libraries
@@ -28,13 +28,13 @@ export const p5Events = [
   "deviceShaken",
 ];
 
-export default class Sketch extends React.Component<any, any> {
-  canvasParentRef: React.RefObject<HTMLDivElement> | undefined
+export default class Sketch extends Component<any, any> {
+  canvasParentRef: RefObject<HTMLDivElement> | undefined
   sketch: any
 
   constructor(props: any) {
     super(props);
-    this.canvasParentRef = React.createRef();
+    this.canvasParentRef = createRef();
   }
 
   componentDidMount() {
@@ -61,7 +61,7 @@ export default class Sketch extends React.Component<any, any> {
   render() {
     return (
       <div
-        ref={this.canvasParentRef as React.LegacyRef<HTMLDivElement>}
+        ref={this.canvasParentRef as LegacyRef<HTMLDivElement>}
         className={this.props.className || "react-p5"}
         data-testid="react-p5"
         style={this.props.style || {}}
